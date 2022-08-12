@@ -1,0 +1,77 @@
+﻿<Page
+    x:Class="HotSearch.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HotSearch"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    mc:Ignorable="d"
+    Background="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Height="Auto" />
+            <RowDefinition
+                Height="*" />
+        </Grid.RowDefinitions>
+        <Grid
+            Name="AppTitleBar"
+            Grid.Row="0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Background="Transparent">
+        </Grid>
+        <TextBlock
+            x:Name="TitleBar" />
+        <muxc:NavigationView
+            Name="AppNav"
+            Grid.Row="1"
+            PaneDisplayMode="Top"
+            IsBackButtonVisible="Collapsed"
+            IsBackEnabled="False"
+            IsPaneOpen="True"
+            IsSettingsVisible="False"
+            ItemInvoked="AppNav_ItemInvoked">
+            <muxc:NavigationView.MenuItems>
+                <muxc:NavigationViewItem
+                    IsSelected="True"
+                    Name="BaiduHotSearchItem"
+                    Content="百度热搜" />
+                <muxc:NavigationViewItem
+                    Name="WeiboHotSearchItem"
+                    Content="微博热搜" />
+                <muxc:NavigationViewItem
+                    Name="ZhihuHotSearchItem"
+                    Content="知乎热搜" />
+                <muxc:NavigationViewItem
+                    Name="ZhihuHotListItem"
+                    Content="知乎热榜" />
+                <muxc:NavigationViewItem
+                    Name="DouyinHotListItem"
+                    Content="抖音热榜" />
+                <muxc:NavigationViewItem
+                    Name="KuaishouHotListItem"
+                    Content="快手热榜" />
+                <muxc:NavigationViewItem
+                    Name="WeixinHotWordsItem"
+                    Content="微信热词" />
+                <muxc:NavigationViewItem
+                    Name="TiebaHotDiscussionItem"
+                    Content="贴吧热议" />
+                <muxc:NavigationViewItem
+                    Name="ToutiaoHotListItem"
+                    Content="头条热榜" />
+            </muxc:NavigationView.MenuItems>
+            <ListView
+                Name="DataList"
+                SelectionMode="Single"
+                ShowsScrollingPlaceholders="True"
+                BorderThickness="0"
+                DoubleTapped="DataList_DoubleTapped"
+                ItemTemplate="{StaticResource HotListViewerTemplate}"
+                BorderBrush="{ThemeResource SystemControlForegroundBaseMediumLowBrush}">
+            </ListView>
+        </muxc:NavigationView>
+    </Grid>
+</Page>
